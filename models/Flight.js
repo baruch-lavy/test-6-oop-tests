@@ -10,6 +10,9 @@ export class Flight {
     this.regPrice = regPrice;
     this.vipPrice = vipPrice;
     this.tickets = Array.apply(null, Array(+maxPass)).map(function () {})
+    this.baggages = []
+    this.currentWeight = 0
+    this.maxWeight = 1000
   }
 
   createRegularTicket() {
@@ -24,5 +27,11 @@ export class Flight {
         this.vipPrice
     )
     return ticket
+  }
+
+  addBaggage(passenger, baggage) {
+    if (!passenger.ticket) return false
+    if ((this.currentWeight + baggage.weight) > this.maxWeight) return false
+    this.baggages.push(baggage)
   }
 }

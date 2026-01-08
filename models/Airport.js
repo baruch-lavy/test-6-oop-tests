@@ -46,6 +46,9 @@ export class Aiirport {
     const discount = passenger.discount()
     const price = discount ? ticket.price * 0.8 : ticket.price
     passenger.money -= price
+
+    ticket.owner = passenger.name
+    passenger.ticket = ticket
     
     flight.tickets[ticketIdx].owner = passenger;
     console.log(`ticket created successfuly, the passenger in flight number ${flight.number} is  ${flight.tickets[ticketIdx].owner.name}`);

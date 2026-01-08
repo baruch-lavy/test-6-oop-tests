@@ -45,7 +45,7 @@ describe('buy-ticket', () => {
     })
 
     test("The passenge'r money is reduced by the correct ticket price", () => {
-        assert.equal(rduceMoneyTest()[1], (rduceMoneyTest()[0] - rduceMoneyTest()[2]))
+        assert.strictEqual(rduceMoneyTest()[1], (rduceMoneyTest()[0] - rduceMoneyTest()[2]))
     })
 })
 
